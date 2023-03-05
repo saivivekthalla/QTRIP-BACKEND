@@ -7,6 +7,7 @@ body {
   position: relative;
 }
 
+
 body {
   overflow-y: auto;
   min-height: 100vh;
@@ -42,11 +43,10 @@ footer {
   /* display: flex;
   flex-wrap: wrap; */
 }
-.tile {
+/* .tile {
   position: relative;
   height: 100%;
-  /* width: calc(25% - 20px); */
-  /* padding: 6px; */
+  
   border-radius: 8px;
   cursor: pointer;
   -webkit-transition: 0.2s all;
@@ -62,13 +62,58 @@ footer {
   height: 100%;
   border-radius: 8px;
   -webkit-transition: 0.2s all;
-  /* -webkit-filter: brightness(70%); */
+  
 }
 .tile img:hover {
   -webkit-filter: brightness(50%);
   transform: scale(1.1);
 }
 
+.tile-text {
+  position: absolute;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+} */
+.tile {
+  position: relative;
+  text-align: center;
+  color: white;
+  height: 100%;
+  overflow: hidden;
+  
+
+  /* TODO: MODULE_CARDS */
+  /* 1. Fill in the required properties. */
+}
+.tile img {
+  /* TODO: MODULE_CARDS */
+  /* 1. Fill in the required properties. */
+  /* display: block; */
+  /* max-width: 100%; */
+  /* min-width: 40vw; */
+  
+  height:24rem;
+  /* width:100%; */
+  object-fit: cover;
+
+}
+.kkk{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color:white;
+  font-size:large;
+}
+.tile:hover img {
+  /* TODO: MODULE_CARDS */
+  /* 1. Fill in the required properties. */
+  filter: brightness(50%);
+  transform: scale(1.1);
+}
+
+/* Hint: Notice the position:absolute and z-index properties. */
+/* Think about how those in relation to the existing "tile" classes. */
 .tile-text {
   position: absolute;
   z-index: 1;

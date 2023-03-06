@@ -5,13 +5,38 @@ import config from "../conf/index.js";
 function getCityFromURL(search) {
   // TODO: MODULE_ADVENTURES
   // 1. Extract the city id from the URL's Query Param and return it
-
+  let j=0
+  for(let i of search)
+  {
+    if (i == "=")
+    {
+      break
+    }
+    j++
+  }
+  // console.log(typeof search.slice(j+1,search.length))
+  let l = search.length
+ return search.slice(j+1,l)
 }
 
 //Implementation of fetch call with a paramterized input based on city
 async function fetchAdventures(city) {
   // TODO: MODULE_ADVENTURES
   // 1. Fetch adventures using the Backend API and return the data
+  // console.log(city)
+  // let that_city = getCityFromURL(city)
+  // console.log(that_city)
+  // console.log(`${config.backendEndpoint}/adventures?city=${city}`)
+  try{
+  let getting = await fetch(`${config.backendEndpoint}/adventures?city=${city}`)
+  let data  = await getting.json()
+  return data
+  }
+  catch(err)
+  {
+    return null
+  }
+  
 
 }
 
@@ -19,6 +44,36 @@ async function fetchAdventures(city) {
 function addAdventureToDOM(adventures) {
   // TODO: MODULE_ADVENTURES
   // 1. Populate the Adventure Cards and insert those details into the DOM
+  console.log(adventures)
+  let pointing = document.getElementById("data")
+  for(let i =0;i<adventures.length;i++){
+  pointing.innerHTML += `<div class="col-6 col-lg-3">
+  <a id = ${adventures[i].id} href="detail/?adventure=${adventures[i].id}">
+  <div class="card  activity-card mt-2">
+  <div class = "category-banner">${adventures[i].category}</div>
+    <img
+      class=" activity-card img"
+      src="${adventures[i].image}"
+      alt="img"
+    />
+    <div class="" style="text-align:center;width:100%;">
+      <div class="card-body">
+        <div class="d-md-flex justify-content-between">
+
+        <span>${adventures[i].name}</span>
+        <p>₹${adventures[i].costPerHead}</p>
+        </div>
+        <div class="given d-md-flex" style="justify-content:space-between;">
+        <h5>Duration</h5>
+        <p>${adventures[i].duration} Hours</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </a>
+</div>`
+  }
 
 }
 

@@ -37,7 +37,7 @@ function addCityToDOM(id, city, description, image) {
   // 1. Populate the City details and insert those details into the DOM
   let pointing = document.getElementById("data")
   
-  pointing.innerHTML+= `<div class="col-lg-3 col-md-6 col-sm-12">
+  pointing.innerHTML+= `<div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                                 <div class="tile card">
                                   <a id = ${id} href="pages/adventures/?city=${id}">
                                   <img class="card-img" src=${image} alt="img">

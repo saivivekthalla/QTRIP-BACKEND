@@ -25,9 +25,7 @@ async function fetchAdventures(city) {
   // console.log(that_city)
   // console.log(`${config.backendEndpoint}/adventures?city=${city}`)
   try {
-    let getting = await fetch(
-      `${config.backendEndpoint}/adventures?city=${city}`
-    );
+    let getting = await fetch(`${config.backendEndpoint}/adventures?city=${city}`);
     let data = await getting.json();
     return data;
   } catch (err) {
